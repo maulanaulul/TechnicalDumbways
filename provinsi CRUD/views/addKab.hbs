@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Provinsi</title>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="outer mt-4" style="padding: 30px; background-color:rgba(0, 0, 255, 0.171)">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <h2></h2>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse ms-auto" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/">
+                                    <h2 class="text-primary">Home</h2>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="header d-flex mt-4">
+                <div class="text m-auto">
+                    <h3 class="text-primary text-center">Add Kabupaten</h3>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <form action="/add-kab" method="post" enctype="multipart/form-data">
+                    <div class="mb-3 row mt-3">
+
+                        <div class="input-group mb-3">
+                            <label class="input-group-text bg-danger text-white" for="inputGroupSelect01">Nama</label>
+                            <input type="text" name="nama" class="form-select">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <label class="input-group-text bg-danger text-white"
+                                for="inputGroupSelect01">Diresmikan</label>
+                            <input type="text" name="diresmikan" class="form-select">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <label class="input-group-text bg-danger text-white"
+                                for="inputGroupSelect01">Provinsi</label>
+                            <select class="form-select" name="provinsi" required id="inputGroupSelect01">
+                                <option selected>Choose...</option>
+                                {{#each provinsi}}
+                                <option value="{{this.id}}">{{this.nama}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <div class="mb-3 row ">
+                            {{!-- <h3 class="text-white text-center ">Upload tumbnile </h3> --}}
+                            <div class="input-group mb-3 mt-2">
+                                <label class="input-group-text bg-danger text-white"
+                                    for="inputGroupFile01">Image</label>
+                                <input type="file" name="image" required class="form-control" id="inputImage"
+                                    onchange="handleChange()">
+                            </div>
+                            <div class="outer d-flex justify-content-center">
+                                <div class="tumb" id="preview-tumb"
+                                    style="width: 200px; height:180px; border:2px blue solid">
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="div-btn d-flex justify-content-center mt-4">
+                            <button type="submit" class="btn btn-primary">Add Data</button>
+                        </div>
+                </form>
+            </div>
+
+
+
+
+
+        </div>
+
+    </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script>
+        function handleChange() {
+            let previewImage = document.getElementById('preview-tumb')
+            const value = URL.createObjectURL(event.target.files[0])
+            previewImage.innerHTML = `<img class="img-fluid" style="width:100%; height:100%;" src="${value}" />`
+        }
+    </script>
+</body>
+
+</html>

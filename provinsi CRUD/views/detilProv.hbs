@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>DProvinsi</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="outer mt-4" style="padding: 30px; background-color:rgba(0, 0, 255, 0.171)">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <h2></h2>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse ms-auto" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/">
+                                    <h2 class="text-primary">Home</h2>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <img class="img-fluid" src="{{prov.image}}" alt="">
+
+                </div>
+                <div class="col-md-8">
+                    <h2>Provinsi {{prov.nama}}</h2>
+                    <p>Tanggal diresmikan : {{prov.diresmikan}}</p>
+                    <p>Pulau : {{prov.pulau}}</p>
+                    <p>Tampilkan Provinsi di {{prov.nama}} : <a href="/kab/{{prov.id}}"><button type="button"
+                                class="btn btn-primary">Show</button></a></p>
+                    <div class="button">
+                        <a href="/deleteProv/{{prov.id}}"><button type="button" class="btn btn-primary mb-3"
+                                style="width: 100%;">Delete</button></a>
+                        <a href="/editProv/{{prov.id}}"><button type="button" class="btn btn-primary mb-3"
+                                style="width: 100%;">Edit</button></a>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+
+        {{!--
+        {{#each kabupaten}}
+        <div class="col-md-3 pt-5">
+            <div class="card" style="background-color:rgba(116, 116, 248, 0.404); border-radius:30px; widht:100% ">
+                <img class="img-fluid" src="{{this.image}}" style=" height:200px;" />
+                <h5 class="text-white text-center">{{this.Nama}}</h5>
+                <p class="text-center text-white">{{this.diresmikan}}</p>
+                <div class="button m-auto">
+                    <a href="/prov/{{this.id}}"><button type="button" class="btn btn-primary mb-3"
+                            style="width: 100%;">Detil</button></a>
+                </div>
+            </div>
+        </div>
+        {{/each}} --}}
+    </div>
+</body>
+
+</html>
